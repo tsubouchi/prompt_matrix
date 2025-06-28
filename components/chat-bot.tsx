@@ -175,7 +175,7 @@ const ChatBot = () => {
       <Button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          "fixed bottom-6 right-6 h-14 w-14 rounded-full bg-white text-black hover:bg-gray-200 shadow-lg z-50 transition-all duration-300",
+          "fixed bottom-4 right-4 h-14 w-14 rounded-full bg-white text-black hover:bg-gray-200 shadow-lg z-50 transition-all duration-300",
           isOpen ? "scale-0" : "scale-100 hover:scale-110",
         )}
         size="icon"
@@ -186,11 +186,14 @@ const ChatBot = () => {
       {/* Chat Window */}
       <div
         className={cn(
-          "fixed bottom-6 right-6 w-96 h-[600px] bg-gray-900 border border-gray-700 rounded-lg shadow-2xl z-50 transition-all duration-300 ease-out",
+          "fixed bottom-52 right-4 w-80 sm:w-96 h-[400px] sm:h-[500px] bg-gray-900 border border-gray-700 rounded-lg shadow-2xl z-50 transition-all duration-300 ease-out max-w-[calc(100vw-2rem)] max-h-[calc(100vh-14rem)]",
           isOpen ? "scale-100 opacity-100 translate-y-0" : "scale-0 opacity-0 translate-y-4 pointer-events-none",
         )}
         style={{
           transformOrigin: "bottom right",
+          right: "1rem",
+          maxWidth: "calc(100vw - 2rem)",
+          bottom: "13rem", // 200px上に移動
         }}
       >
         {/* Header */}

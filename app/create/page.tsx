@@ -10,6 +10,7 @@ import Link from "next/link"
 import { ArrowLeft, Zap, Sparkles, Loader2, Copy, Wand2 } from "lucide-react"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import ChatBot from "@/components/chat-bot"
 
 const MatrixRain = () => {
   useEffect(() => {
@@ -525,6 +526,9 @@ export default function CreatePromptPage() {
           )}
         </div>
       </main>
+
+      {/* Chat Bot */}
+      <ChatBot />
     </div>
   )
 }

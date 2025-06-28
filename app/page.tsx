@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import ChatBot from "@/components/chat-bot"
 import {
   Copy,
   Download,
@@ -406,6 +407,9 @@ export default function Component() {
           <p className="text-gray-400">© 2024 Prompt Matrix. AIの力で未来を創造する。</p>
         </div>
       </footer>
+
+      {/* Chat Bot */}
+      <ChatBot />
     </div>
   )
 }

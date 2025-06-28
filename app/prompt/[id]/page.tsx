@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 import { useParams } from "next/navigation"
 import { Copy, ArrowLeft, Zap, Code, Palette } from "lucide-react"
+import ChatBot from "@/components/chat-bot"
 
 const MatrixRain = () => {
   useEffect(() => {
@@ -304,6 +305,9 @@ export default function PromptDetailPage() {
           </div>
         </div>
       </main>
+
+      {/* Chat Bot */}
+      <ChatBot />
     </div>
   )
 }

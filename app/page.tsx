@@ -214,22 +214,25 @@ export default function Component() {
 
       {/* Header */}
       <header className="relative z-10 border-b border-gray-800 bg-black/80 backdrop-blur-sm">
-        <div className="container mx-auto px-4 py-6">
+        <div className="container mx-auto px-4 py-4 md:py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <Zap className="h-8 w-8 text-white" />
-              <h1 className="text-2xl font-bold text-white">PROMPT MATRIX</h1>
+              <Zap className="h-6 w-6 md:h-8 md:w-8 text-white" />
+              <h1 className="text-lg md:text-2xl font-bold text-white">PROMPT MATRIX</h1>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 md:space-x-4">
               <Link href="/create">
-                <Button className="bg-white text-black hover:bg-gray-200">
-                  <Plus className="h-4 w-4 mr-2" />
-                  カスタム作成
+                <Button className="bg-white text-black hover:bg-gray-200 text-xs md:text-sm px-2 md:px-4 py-1 md:py-2">
+                  <Plus className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
+                  <span className="hidden sm:inline">カスタム</span>作成
                 </Button>
               </Link>
-              <Button variant="outline" className="border-gray-600 text-white hover:bg-gray-800 bg-transparent">
-                <Download className="h-4 w-4 mr-2" />
-                全テンプレートをダウンロード
+              <Button
+                variant="outline"
+                className="border-gray-600 text-white hover:bg-gray-800 bg-transparent text-xs md:text-sm px-2 md:px-4 py-1 md:py-2 hidden sm:flex"
+              >
+                <Download className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
+                <span className="hidden md:inline">全テンプレートを</span>ダウンロード
               </Button>
             </div>
           </div>
@@ -237,28 +240,28 @@ export default function Component() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative z-10 py-20">
+      <section className="relative z-10 py-12 md:py-20">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-6xl font-bold mb-6 text-white">
+            <h2 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 text-white leading-tight">
               プロンプトの力を
               <br />
               解き放て
             </h2>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+            <p className="text-base md:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed px-4">
               AIとの対話を革命的に変える、厳選されたプロンプトテンプレート集。
-              <br />
+              <br className="hidden md:block" />
               あなたの創造性と生産性を次のレベルへ導きます。
             </p>
-            <div className="flex justify-center space-x-4">
-              <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-semibold">
+            <div className="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4 px-4">
+              <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-semibold text-sm md:text-base">
                 テンプレートを探索
               </Button>
               <Link href="/create">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-gray-600 text-white hover:bg-gray-800 bg-transparent"
+                  className="border-gray-600 text-white hover:bg-gray-800 bg-transparent w-full sm:w-auto text-sm md:text-base"
                 >
                   <Sparkles className="h-4 w-4 mr-2" />
                   AIで作成

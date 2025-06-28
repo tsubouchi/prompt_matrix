@@ -329,15 +329,15 @@ export default function CreatePromptPage() {
       </header>
 
       {/* Main Content */}
-      <main className="relative z-10 py-12">
+      <main className="relative z-10 py-8 md:py-12">
         <div className="container mx-auto px-4 max-w-4xl">
           {/* Header Section */}
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Wand2 className="h-8 w-8 text-white" />
-              <h1 className="text-4xl font-bold text-white">カスタムプロンプト作成</h1>
+          <div className="text-center mb-8 md:mb-12 px-4">
+            <div className="flex flex-col items-center gap-2 mb-4">
+              <Wand2 className="h-6 w-6 md:h-8 md:w-8 text-white" />
+              <h1 className="text-2xl md:text-4xl font-bold text-white leading-tight">カスタムプロンプト作成</h1>
             </div>
-            <p className="text-xl text-gray-300">AIがあなたのテーマに最適なプロンプトを生成します</p>
+            <p className="text-lg md:text-xl text-gray-300 px-2">AIがあなたのテーマに最適なプロンプトを生成します</p>
           </div>
 
           {/* Form Section */}
@@ -348,9 +348,9 @@ export default function CreatePromptPage() {
                 プロンプト生成設定
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-4 md:space-y-6 p-4 md:p-6">
               <div>
-                <Label htmlFor="theme" className="text-white">
+                <Label htmlFor="theme" className="text-white text-sm md:text-base">
                   テーマ *
                 </Label>
                 <Input
@@ -358,31 +358,43 @@ export default function CreatePromptPage() {
                   placeholder="例: AI、サステナビリティ、リモートワーク"
                   value={theme}
                   onChange={(e) => setTheme(e.target.value)}
-                  className="bg-gray-800 border-gray-600 text-white placeholder-gray-400"
+                  className="bg-gray-800 border-gray-600 text-white placeholder-gray-400 mt-1 text-sm md:text-base"
                 />
               </div>
 
               <div>
-                <Label htmlFor="category" className="text-white">
+                <Label htmlFor="category" className="text-white text-sm md:text-base">
                   カテゴリ *
                 </Label>
                 <Select value={category} onValueChange={setCategory}>
-                  <SelectTrigger className="bg-gray-800 border-gray-600 text-white">
+                  <SelectTrigger className="bg-gray-800 border-gray-600 text-white mt-1 text-sm md:text-base">
                     <SelectValue placeholder="カテゴリを選択してください" />
                   </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="ビジネス">ビジネス</SelectItem>
-                    <SelectItem value="技術">技術</SelectItem>
-                    <SelectItem value="マーケティング">マーケティング</SelectItem>
-                    <SelectItem value="教育">教育</SelectItem>
-                    <SelectItem value="クリエイティブ">クリエイティブ</SelectItem>
-                    <SelectItem value="分析">分析</SelectItem>
+                  <SelectContent className="bg-gray-900 border-gray-600 text-white">
+                    <SelectItem value="ビジネス" className="text-white hover:bg-gray-700 focus:bg-gray-700">
+                      ビジネス
+                    </SelectItem>
+                    <SelectItem value="技術" className="text-white hover:bg-gray-700 focus:bg-gray-700">
+                      技術
+                    </SelectItem>
+                    <SelectItem value="マーケティング" className="text-white hover:bg-gray-700 focus:bg-gray-700">
+                      マーケティング
+                    </SelectItem>
+                    <SelectItem value="教育" className="text-white hover:bg-gray-700 focus:bg-gray-700">
+                      教育
+                    </SelectItem>
+                    <SelectItem value="クリエイティブ" className="text-white hover:bg-gray-700 focus:bg-gray-700">
+                      クリエイティブ
+                    </SelectItem>
+                    <SelectItem value="分析" className="text-white hover:bg-gray-700 focus:bg-gray-700">
+                      分析
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               <div>
-                <Label htmlFor="purpose" className="text-white">
+                <Label htmlFor="purpose" className="text-white text-sm md:text-base">
                   目的・用途
                 </Label>
                 <Textarea
@@ -390,21 +402,21 @@ export default function CreatePromptPage() {
                   placeholder="どのような目的でプロンプトを使用しますか？（任意）"
                   value={purpose}
                   onChange={(e) => setPurpose(e.target.value)}
-                  className="bg-gray-800 border-gray-600 text-white placeholder-gray-400"
+                  className="bg-gray-800 border-gray-600 text-white placeholder-gray-400 mt-1 text-sm md:text-base"
                   rows={3}
                 />
               </div>
 
               {error && (
-                <div className="bg-red-900/20 border border-red-700 rounded-lg p-4">
-                  <p className="text-red-300">{error}</p>
+                <div className="bg-red-900/20 border border-red-700 rounded-lg p-3 md:p-4">
+                  <p className="text-red-300 text-sm md:text-base">{error}</p>
                 </div>
               )}
 
               <Button
                 onClick={handleGenerate}
                 disabled={!theme || !category || isGenerating}
-                className="w-full bg-white text-black hover:bg-gray-200"
+                className="w-full bg-white text-black hover:bg-gray-200 text-sm md:text-base py-2 md:py-3"
                 size="lg"
               >
                 {isGenerating ? (
@@ -425,40 +437,42 @@ export default function CreatePromptPage() {
           {/* Generated Prompt Section */}
           {generatedPrompt && (
             <Card className="bg-gray-900/60 border-gray-700">
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-white flex items-center gap-2">
-                    <Sparkles className="h-5 w-5" />
+              <CardHeader className="p-4 md:p-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <CardTitle className="text-white flex items-center gap-2 text-lg md:text-xl">
+                    <Sparkles className="h-4 w-4 md:h-5 md:w-5" />
                     生成されたプロンプト
                   </CardTitle>
-                  <Badge variant="outline" className="border-gray-600 text-gray-300">
+                  <Badge variant="outline" className="border-gray-600 text-gray-300 self-start sm:self-center">
                     {category}
                   </Badge>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-4 md:space-y-6 p-4 md:p-6">
                 {/* Title and Description */}
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2">{generatedPrompt.title}</h3>
-                  <p className="text-gray-300">{generatedPrompt.description}</p>
+                  <h3 className="text-lg md:text-xl font-bold text-white mb-2 leading-tight">
+                    {generatedPrompt.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm md:text-base leading-relaxed">{generatedPrompt.description}</p>
                 </div>
 
                 {/* Template */}
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-lg font-semibold text-white">プロンプトテンプレート</h4>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                    <h4 className="text-base md:text-lg font-semibold text-white">プロンプトテンプレート</h4>
                     <Button
                       onClick={() => copyToClipboard(generatedPrompt.template, "template")}
                       variant="outline"
                       size="sm"
-                      className="border-gray-600 text-white hover:bg-gray-800 bg-transparent"
+                      className="border-gray-600 text-white hover:bg-gray-800 bg-transparent text-xs md:text-sm self-start sm:self-center"
                     >
-                      <Copy className="h-4 w-4 mr-2" />
+                      <Copy className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
                       {copiedId === "template" ? "コピー完了!" : "コピー"}
                     </Button>
                   </div>
-                  <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4">
-                    <pre className="text-gray-300 whitespace-pre-wrap font-mono text-sm leading-relaxed">
+                  <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-3 md:p-4 overflow-x-auto">
+                    <pre className="text-gray-300 whitespace-pre-wrap font-mono text-xs md:text-sm leading-relaxed">
                       {generatedPrompt.template}
                     </pre>
                   </div>
@@ -466,12 +480,12 @@ export default function CreatePromptPage() {
 
                 {/* Use Cases */}
                 <div>
-                  <h4 className="text-lg font-semibold text-white mb-3">主な使用例</h4>
+                  <h4 className="text-base md:text-lg font-semibold text-white mb-3">主な使用例</h4>
                   <ul className="space-y-2">
                     {generatedPrompt.useCases?.map((useCase: string, index: number) => (
-                      <li key={index} className="flex items-start gap-2 text-gray-300">
-                        <span className="text-white mt-1">•</span>
-                        {useCase}
+                      <li key={index} className="flex items-start gap-2 text-gray-300 text-sm md:text-base">
+                        <span className="text-white mt-1 text-xs md:text-sm">•</span>
+                        <span className="leading-relaxed">{useCase}</span>
                       </li>
                     ))}
                   </ul>
@@ -479,26 +493,29 @@ export default function CreatePromptPage() {
 
                 {/* Tips */}
                 <div>
-                  <h4 className="text-lg font-semibold text-white mb-3">効果的な使用のコツ</h4>
+                  <h4 className="text-base md:text-lg font-semibold text-white mb-3">効果的な使用のコツ</h4>
                   <ul className="space-y-2">
                     {generatedPrompt.tips?.map((tip: string, index: number) => (
-                      <li key={index} className="flex items-start gap-2 text-gray-300">
+                      <li key={index} className="flex items-start gap-2 text-gray-300 text-sm md:text-base">
                         <span className="text-white mt-1">💡</span>
-                        {tip}
+                        <span className="leading-relaxed">{tip}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-4 pt-4 border-t border-gray-700">
-                  <Button onClick={handleSave} className="flex-1 bg-white text-black hover:bg-gray-200">
+                <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4 border-t border-gray-700">
+                  <Button
+                    onClick={handleSave}
+                    className="flex-1 bg-white text-black hover:bg-gray-200 text-sm md:text-base py-2 md:py-3"
+                  >
                     プロンプトを保存
                   </Button>
                   <Button
                     onClick={() => setGeneratedPrompt(null)}
                     variant="outline"
-                    className="border-gray-600 text-white hover:bg-gray-800 bg-transparent"
+                    className="border-gray-600 text-white hover:bg-gray-800 bg-transparent text-sm md:text-base py-2 md:py-3"
                   >
                     新しく作成
                   </Button>
